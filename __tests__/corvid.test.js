@@ -55,6 +55,23 @@ describe('Corvids Suite', () => {
     });
   });
 
+  it('#Push a corvid into table', async () => {
+    const newCorvid = {
+      name: 'Scrub Jay',
+      color: 'Blue',
+    };
+    const res = await request(app).post('/corvids').send(newCorvid);
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      ...newCorvid,
+    });
+
+    
+    //NEW TEST HERE
+
+  });
+
   afterAll(() => {
     pool.end();
   });
