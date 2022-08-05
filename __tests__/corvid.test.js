@@ -36,38 +36,25 @@ describe('Corvids Suite', () => {
       name: 'Magpie',
       color: 'Black and White'
     }];
-
-    expect(res.body).toEqual([{
+    expect(res.status).toBe(200);
+    expect(res.body[0]).toEqual({
       id: '1',
       name: 'Raven',
       color: 'Black'
     },
-    {
-      id: '2',
-      name: 'Crow',
-      color: 'Black'
-    },
-    {
-      id: '3',
-      name: 'Jay',
-      color: 'Blue'
-    },
-    {
-      id: '4',
-      name: 'Cardinal',
-      color: 'Red'
-    },
-    {
-      id: '5',
-      name: 'Magpie',
-      color: 'Black and White'
-    }]);
-
-
-
-
-
+    );
+  
   });
+  it('get a corvid from #get/1', async () => {
+    const resp = await request(app).get('/corvids/2');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: '2',
+      name: expect.any(String),
+      color: expect.any(String),
+    });
+  });
+
   afterAll(() => {
     pool.end();
   });
