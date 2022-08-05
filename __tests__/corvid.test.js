@@ -75,6 +75,7 @@ describe('Corvids Suite', () => {
     // expect(res.status).toBe(200);
     expect(res.body.color).toBe('Blue and White');
   });
+  
   it('#DELETE should remove a corvid by id', async () => {
     const resp = await request(app).delete('/corvids/1');
     expect(resp.status).toBe(200);

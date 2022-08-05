@@ -2,7 +2,19 @@
 
 -- The SQL in this file will be executed when you run `npm run setup-db`
 DROP TABLE IF exists corvid;
+DROP TABLE IF exists king;
 
+CREATE TABLE king (
+    id BIGINT GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR NOT NULL,
+    country VARCHAR NOT NULL
+);
+
+INSERT INTO king (name, country) VALUES
+('Richard VIII', 'England'),
+('Louis XIV', 'France'),
+('Peter I', 'Russia'),
+('Fredrick II', 'Prussia');
 
 
 
