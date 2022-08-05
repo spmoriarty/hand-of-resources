@@ -65,13 +65,18 @@ describe('Corvids Suite', () => {
     expect(res.body).toEqual({
       id: expect.any(String),
       ...newCorvid,
-    });
-
-    
-    //NEW TEST HERE
-
+    });  
   });
 
+  it('#Update should update a entry based on id', async () => {
+    const res = await request(app).put('/corvids/1').send({
+      color: 'Blue and White',
+    });
+    // expect(res.status).toBe(200);
+    expect(res.body.color).toBe('Blue and White');
+  });
+  //NEW TEST HERE
+  
   afterAll(() => {
     pool.end();
   });
