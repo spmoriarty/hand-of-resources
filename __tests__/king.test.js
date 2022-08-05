@@ -26,14 +26,14 @@ describe('Kings Suite', () => {
       name: 'Peter I',
       country: 'Russia'
     }];
-    // expect(res.status).toBe(200);
+    expect(res.status).toBe(200);
     expect(res.body[0]).toEqual({
       id: '1',
       name: 'Richard VIII',
       country: 'England'
     });
   });
-  //INSERT NEW TEST HERE
+  
   it('get a king from #get/1', async () => {
     const resp = await request(app).get('/kings/2');
     expect(resp.status).toBe(200);
@@ -42,9 +42,22 @@ describe('Kings Suite', () => {
       name: expect.any(String),
       country: expect.any(String),
     });
-
-
   });
+
+  it('#Push a king into the table', async () => {
+    const newKing = {
+      name: 'Charlamange',
+      country: 'Holy Roman Empire'
+    };
+    const res = await request(app).post('/kings').send(newKing);
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      ...newKing,
+    });
+  });
+
+
   afterAll(() => {
     pool.end();
   });
