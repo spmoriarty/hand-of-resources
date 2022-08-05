@@ -32,8 +32,16 @@ describe('Kings Suite', () => {
       name: 'Richard VIII',
       country: 'England'
     });
-
-    //INSERT NEW TEST HERE
+  });
+  //INSERT NEW TEST HERE
+  it('get a king from #get/1', async () => {
+    const resp = await request(app).get('/kings/2');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: '2',
+      name: expect.any(String),
+      country: expect.any(String),
+    });
 
 
   });
