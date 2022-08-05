@@ -75,8 +75,15 @@ describe('Corvids Suite', () => {
     // expect(res.status).toBe(200);
     expect(res.body.color).toBe('Blue and White');
   });
-  //NEW TEST HERE
+  it('#DELETE should remove a corvid by id', async () => {
+    const resp = await request(app).delete('/corvids/1');
+    expect(resp.status).toBe(200);
+    const corvidResp = await request(app).get('/corvids/1');
+    expect(corvidResp.status).toBe(404);
+  });
   
+  //NEW TEST HERE
+
   afterAll(() => {
     pool.end();
   });
