@@ -64,6 +64,13 @@ describe('Kings Suite', () => {
     expect(res.body.country).toBe('United Kingdom');
   });
 
+  it('#delete should delete a king by id', async () => {
+    const resp = await request(app).delete('/kings/1');
+    expect(resp.status).toBe(200);
+    const kingResp = await request(app).get('/kings/1');
+    expect(kingResp.status).toBe(404);
+  });
+
   afterAll(() => {
     pool.end();
   });
