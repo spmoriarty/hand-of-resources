@@ -56,7 +56,13 @@ describe('Kings Suite', () => {
       ...newKing,
     });
   });
-
+  it('#Update should update a entry based on id', async () => {
+    const res = await request(app).put('/kings/1').send({
+      country: 'United Kingdom',
+    });
+    expect(res.status).toBe(200);
+    expect(res.body.country).toBe('United Kingdom');
+  });
 
   afterAll(() => {
     pool.end();
