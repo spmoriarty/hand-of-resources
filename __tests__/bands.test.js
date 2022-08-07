@@ -40,7 +40,21 @@ describe('Bands Suite', () => {
     });
   });
 
+  it('#Push a band into table', async () => {
+    const newBand = {
+      name: 'Puscier',
+      founded: 2009,
+    };
+    const res = await request(app).post('/bands').send(newBand);
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      ...newBand,
+    });
+  });
 
+
+  
 
 
   //NEW TEST HERE
