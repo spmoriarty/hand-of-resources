@@ -3,6 +3,20 @@
 -- The SQL in this file will be executed when you run `npm run setup-db`
 DROP TABLE IF exists corvid;
 DROP TABLE IF exists king;
+DROP TABLE IF exists bands;
+
+CREATE TABLE bands (
+    id BIGINT GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR NOT NULL,
+    founded INT
+);
+
+INSERT INTO bands (name, founded) VALUES
+('Tool', 1990),
+('Linkin Park', 1996),
+('Korn', 1993),
+('Audioslave', 2001);
+
 
 CREATE TABLE king (
     id BIGINT GENERATED ALWAYS AS IDENTITY,
