@@ -61,7 +61,12 @@ describe('Bands Suite', () => {
     expect(res.body.name).toBe('A perfect Circle');
   });
 
-  
+  it('#Delete should remove a band by id', async () => {
+    const res =  await request(app).delete('/bands/1');
+    expect(res.status).toBe(200);
+    const bandRes =  await request(app).get('/bands/1');
+    expect(bandRes.status).toBe(404);
+  });
 
 
 
