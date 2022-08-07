@@ -72,7 +72,7 @@ describe('Corvids Suite', () => {
     const res = await request(app).put('/corvids/1').send({
       color: 'Blue and White',
     });
-    // expect(res.status).toBe(200);
+    expect(res.status).toBe(200);
     expect(res.body.color).toBe('Blue and White');
   });
   

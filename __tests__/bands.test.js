@@ -53,8 +53,16 @@ describe('Bands Suite', () => {
     });
   });
 
+  it('#Update should update an entry based on id', async () => {
+    const res = await request(app).put('/bands/1').send({
+      name: 'A perfect Circle',
+    });
+    expect(res.status).toBe(200);
+    expect(res.body.name).toBe('A perfect Circle');
+  });
 
   
+
 
 
   //NEW TEST HERE
