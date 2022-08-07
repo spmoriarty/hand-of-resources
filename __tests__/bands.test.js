@@ -26,12 +26,17 @@ describe('Bands Suite', () => {
     expect(res.body[0]).toEqual({
       id: '1',
       name: 'Tool',
-      country: 1990,
+      founded: 1990,
     });
+  });
+
+   
 
 
-    afterAll(() => {
-      pool.end();
-    });
-  });}
-);
+  
+  //NEW TEST HERE
+
+  afterAll(() => {
+    pool.end();
+  });
+});
