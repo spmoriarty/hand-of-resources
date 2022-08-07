@@ -30,10 +30,19 @@ describe('Bands Suite', () => {
     });
   });
 
-   
+  it('get a band from #get/1', async () => {
+    const resp = await request(app).get('/bands/2');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: '2',
+      name: expect.any(String),
+      founded: expect.any(Number),
+    });
+  });
 
 
-  
+
+
   //NEW TEST HERE
 
   afterAll(() => {
