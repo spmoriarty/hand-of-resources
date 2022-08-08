@@ -60,6 +60,13 @@ describe('Bands Suite', () => {
     expect(res.status).toBe(200);
     expect(res.body.name).toBe('Sweet Potato');
   });
+
+  it('#Delete should remove a veggie by id', async () => {
+    const res = await request(app).delete('/veggies/1');
+    expect(res.status).toBe(200);
+    const vegRes = await request(app).get('/veggies/1');
+    expect(vegRes.status).toBe(404);
+  });
   //TEST GO HERE
 
   afterAll(() => {
