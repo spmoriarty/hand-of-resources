@@ -39,7 +39,19 @@ describe('Bands Suite', () => {
       type: expect.any(String),
     });
   });
-
+ 
+  it('#Push a veggie into the table', async () => {
+    const newVeg = {
+      name: 'Acorn Squash',
+      type: 'Starch',
+    };
+    const res = await request(app).post('/veggies').send(newVeg);
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      ...newVeg,
+    });
+  });
   //TEST GO HERE
 
   afterAll(() => {
