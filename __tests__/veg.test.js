@@ -30,7 +30,15 @@ describe('Bands Suite', () => {
 
   });
 
-
+  it('get a single veggie from the table', async () => {
+    const resp = await request(app).get('/veggies/2');
+    expect(resp.status).toBe(200);
+    expect(resp.body).toEqual({
+      id: '2',
+      name: expect.any(String),
+      type: expect.any(String),
+    });
+  });
 
   //TEST GO HERE
 
