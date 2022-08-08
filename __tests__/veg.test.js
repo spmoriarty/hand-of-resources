@@ -52,6 +52,14 @@ describe('Bands Suite', () => {
       ...newVeg,
     });
   });
+
+  it('#Update should update a current veggie', async () => {
+    const res = await request(app).put('/veggies/1').send({
+      name: 'Sweet Potato',
+    });
+    expect(res.status).toBe(200);
+    expect(res.body.name).toBe('Sweet Potato');
+  });
   //TEST GO HERE
 
   afterAll(() => {
