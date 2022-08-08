@@ -5,6 +5,20 @@ DROP TABLE IF exists corvid;
 DROP TABLE IF exists king;
 DROP TABLE IF exists bands;
 DROP TABLE IF exists vegetables;
+DROP TABLE IF exists trees;
+
+CREATE TABLE trees (
+    id BIGINT GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR NOT NULL,
+    type VARCHAR NOT NULL
+);
+
+INSERT into trees (name, type) VALUES
+('Oak', 'Deciduous'),
+('Maple', 'Deciduous'),
+('Elm', 'Deciduous'),
+('Fir', 'Coniferous'),
+('Pine', 'Coniferous');
 
 CREATE TABLE vegetables (
     id BIGINT GENERATED ALWAYS AS IDENTITY,

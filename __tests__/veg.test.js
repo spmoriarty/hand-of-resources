@@ -10,6 +10,7 @@ describe('Bands Suite', () => {
 
   it('get all vegetables from table', async () => {
     const res = await request(app).get('/veggies');
+    // eslint-disable-next-line
     const expected = [{
       id: '1',
       name: 'Potato',
