@@ -4,6 +4,21 @@
 DROP TABLE IF exists corvid;
 DROP TABLE IF exists king;
 DROP TABLE IF exists bands;
+DROP TABLE IF exists vegetables;
+
+CREATE TABLE vegetables (
+    id BIGINT GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR NOT NULL,
+    type VARCHAR NOT NULL
+);
+
+INSERT into vegetables (name, type) VALUES
+('Potato', 'Starch'),
+('Lettuce', 'Leafy'),
+('Spinach', 'Leafy'),
+('Tomato', 'Fruit');
+
+
 
 CREATE TABLE bands (
     id BIGINT GENERATED ALWAYS AS IDENTITY,
